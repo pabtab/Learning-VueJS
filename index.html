@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Curso vue</title>
+    </head>
+    <body>
+        <div id="app">
+            hola {{nombre}}
+            
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    nombre: 'Pablo'
+                }
+            })
+        </script>
+    </body>
+</html>
