@@ -8,12 +8,32 @@
             hola {{nombre}}
             
         </div>
+
+        <div id="app2">
+            <a v-bind:href="link">{{title}}</a>
+          </div>
+
+
         <script src="https://unpkg.com/vue"></script>
         <script type="text/javascript">
+            /**
+                Hola mundo
+            */
             let app = new Vue({
                 el: '#app',
                 data: {
                     nombre: 'Pablo'
+                }
+            })
+
+            /**
+                Probando link con directiva href
+            */
+            let app2 = new Vue({
+                el: '#app2',
+                data: {
+                    title: 'Cacharreando links con vueJS',
+                    link: 'http://www.google.com'
                 }
             })
         </script>
