@@ -1,19 +1,37 @@
+const bridge = new Vue()
+
+
 Vue.component('pablo-component', {
   props: ['people'],
-  template: '#slots',
+  template: '#parent',
   methods: {
     chooseWinner() {
       let peopleAmount = this.peopleList.length;
       let index = Math.floor((Math.random() * peopleAmount));
-      this.winner = this.people[index - 1];
+      bridge.$emit('winner-comp', this.people[index]);
     }
   },
   data() {
     return {
-      winner: false,
       peopleList: this.people
     }
   }
+})
+
+Vue.component('pablo-child-comp', {
+  template: `
+          <div> <h2>{{name}}</h2></div>
+        `,
+  data() {
+    return {
+      name: ''
+    }
+  },
+  created() {
+    bridge.$on('winner-comp', winnerGuy => {
+      this.name = winnerGuy;
+    });
+  },
 })
 
 const app = new Vue({

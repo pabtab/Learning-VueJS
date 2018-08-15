@@ -7,19 +7,13 @@
 
 <body>
 	<div id="app1">
-		<pablo-component :people="personas">
-			<template scope="scSlo">
-				<li>{{scSlo.per}}</li>
-			</template>
-		</pablo-component>
+			<pablo-child-comp></pablo-child-comp>
+		<pablo-component :people="personas"></pablo-component>
 
 	</div>
 
-	<template id="slots">
-		<ul>
-			<slot v-for="person in people" :per="person"></slot>
-		</ul>
-		
+	<template id="parent">
+		<button @click="chooseWinner">Choose Winner</button>
 	</template>
 	<script src="https://unpkg.com/vue"></script>
 	<script src="./main.js"></script>
