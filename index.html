@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Curso vue</title>
-    </head>
-    <body>
-        <div id="app1">
-            <pablo-component :people="personas"></pablo-component>
-            
-        </div>
-        <script src="https://unpkg.com/vue"></script>
-        <script src="./main.js"></script>
-    </body>
+
+<head>
+	<title>Curso vue</title>
+</head>
+
+<body>
+	<div id="app1">
+		<pablo-component :people="personas">
+			<template scope="scSlo">
+				<li>{{scSlo.per}}</li>
+			</template>
+		</pablo-component>
+
+	</div>
+
+	<template id="slots">
+		<ul>
+			<slot v-for="person in people" :per="person"></slot>
+		</ul>
+		
+	</template>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="./main.js"></script>
+</body>
+
 </html>

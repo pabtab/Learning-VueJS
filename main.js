@@ -1,15 +1,6 @@
 Vue.component('pablo-component', {
   props: ['people'],
-  template: `<div>
-              <h1 v-if="winner">The winner is: {{winner}}</h1>
-              <template v-else>
-                <h1>Users List</h1>
-                <ul>
-                  <li v-for="person in peopleList">{{ person }}</li>
-                </ul>
-              </template>
-              <button @click="chooseWinner">Choose Winner</button>
-            </div>`,
+  template: '#slots',
   methods: {
     chooseWinner() {
       let peopleAmount = this.peopleList.length;
