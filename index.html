@@ -4,18 +4,32 @@
 <head>
 	<title>Curso vue</title>
 </head>
+<style lang="text/css">
+	ul {
+		column-count: 3;
+	}
+
+	li {
+		border: solid;
+		list-style: none;
+	}
+</style>
 
 <body>
 	<div id="app1">
-			<pablo-child-comp></pablo-child-comp>
-		<pablo-component :people="personas"></pablo-component>
-
+		<list-users></list-users>
 	</div>
 
 	<template id="parent">
-		<button @click="chooseWinner">Choose Winner</button>
+		<div>
+			<search-input v-model="searchValue"></search-input>
+			<ul>
+				<card-user v-for="user in filteredValues" :user="user"></card-user>
+			</ul>
+		</div>
 	</template>
 	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="./main.js"></script>
 </body>
 
